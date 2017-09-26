@@ -25,6 +25,6 @@ end
 
 def full?(board)
   board.all? do |field|
-    field == "x" || filed == "0"
+    position_taken?(board, field)
   end
 end
