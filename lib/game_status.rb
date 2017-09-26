@@ -27,6 +27,7 @@ def won?(board)
 
     if position_1 == "X" && position_2 == "X" && position_3 == "X" || position_1 == "0" && position_2 == "0" && position_3 == "0"
       combo = win_combination
+    end
   end
 
   if combo
