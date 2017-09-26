@@ -24,7 +24,8 @@ def won?(board)
 end
 
 def full?(board)
-  board.all?{|token| token == "X" || token == "O"}
+  board.all? do |field|
+    position_taken?(board, field)
 end
 
 def draw?(board)
