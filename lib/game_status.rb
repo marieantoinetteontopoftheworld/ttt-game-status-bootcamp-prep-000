@@ -16,7 +16,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  WIN_COMBINATIONS.each do |win_combination|
+  WIN_COMBINATIONS.detect do |win_combination|
     win_index_1 = win_combination[0]
     win_index_2 = win_combination[1]
     win_index_3 = win_combination[2]
@@ -26,9 +26,12 @@ def won?(board)
     position_3 = board[index_3]
 
     if position_1 == "X" && position_2 == "X" && position_3 == "X" || position_1 == "0" && position_2 == "0" && position_3 == "0"
-      return win_combination # return the win_combination indexes that won.
-    else
-      false
-    end
+      combo = win_combination
+  end
+
+  if combo
+    return combo
+  else
+    return nil
   end
 end
