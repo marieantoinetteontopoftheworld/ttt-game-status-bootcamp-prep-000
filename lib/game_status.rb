@@ -34,5 +34,9 @@ def draw?(board)
 end
 
 def over?(board)
-  won?(board) || draw?(board) || full?(board)
+  won?(board) || full?(board) #draw?(board) not necessary
 end
+
+def winner(board)
+  winning_combo = won?(board)
+  return board[winning_combo[0]]
