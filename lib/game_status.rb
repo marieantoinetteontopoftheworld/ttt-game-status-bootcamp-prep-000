@@ -12,14 +12,19 @@ WIN_COMBINATIONS = [
   [1,4,7],
   [2,5,8],
   [0,4,8],
-  [6,4,2]
+  [2,4,6]
 ]
 
-# Define won?, full?, draw?, over?, and winner below
 def won?(board)
-  WIN_COMBINATIONS.detect do |combo|
-    board[combo[0]] == board[combo[1]] &&
-    board[combo[1]] == board[combo[2]] &&
-    position_taken?(board, combo[0])
+  WIN_COMBINATIONS.detect do |win_combo|
+    board[win_combo[0]] == board[won_combo[1]] &&
+    board[win_combo[1]] == board[won_combo[2]] &&
+    position_taken?(board, win_combo[0])
+  end
+end
+
+def full?(board)
+  board.all? do |field|
+    position_taken?(board, field)
   end
 end
