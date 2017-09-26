@@ -28,3 +28,7 @@ def full?(board)
     position_taken?(board, field)
   end
 end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
