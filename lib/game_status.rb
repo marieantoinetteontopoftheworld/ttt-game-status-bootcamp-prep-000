@@ -26,6 +26,7 @@ end
 def full?(board)
   board.all? do |field|
     position_taken?(board, field)
+  end
 end
 
 def draw?(board)
