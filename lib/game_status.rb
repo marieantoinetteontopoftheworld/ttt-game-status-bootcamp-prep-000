@@ -24,19 +24,21 @@ def won?(board)
 end
 
 def full?(board)
-  board.all?{|token| token == "X" || token == "O"}
+  board.all? do |field|
+    position_taken?(board, field)
+  end
 end
 
 def draw?(board)
-  full?(board) && !won?(board)
+  !won?(board) && full?(board)
 end
 
 def over?(board)
-  won?(board) || full?(board)
+  won?(board) || full?(board) #draw?(board) not necessary
 end
 
 def winner(board)
   if winning_combo = won?(board)
-    board[winning_combo.first]
+    board[winning_combo[0]]
   end
 end
