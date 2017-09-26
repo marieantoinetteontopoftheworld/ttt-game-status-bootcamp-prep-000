@@ -30,15 +30,15 @@ def full?(board)
 end
 
 def draw?(board)
-  !won?(board) && full?(board)
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  won?(board) || full?(board) #draw?(board) not necessary
+  won?(board) || full?(board)
 end
 
 def winner(board)
   if winning_combo = won?(board)
-    board[winning_combo[0]]
+    board[winning_combo.first]
   end
 end
