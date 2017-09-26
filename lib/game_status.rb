@@ -24,9 +24,12 @@ def won?(board)
 end
 
 def full?(board)
-  board.all? do |field|
-    field == "X" || flied == "0"
-  end
+  board.all?{|token| token == "X" || token == "O"}
+
+  #above from solutions, why not this:
+  #board.all? do |field|
+  #  field == "X" || flied == "0"
+  #end
 end
 
 def draw?(board)
