@@ -25,7 +25,7 @@ end
 
 def full?(board)
   board.all? do |field|
-    board.all?{|token| token == "X" || token == "O"}
+    position_taken?(board, field)
   end
 end
 
