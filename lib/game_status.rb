@@ -19,7 +19,7 @@ def won?(board)
   WIN_COMBINATIONS.detect do |win_combo|
     board[win_combo[0]] == board[win_combo[1]] &&
     board[win_combo[1]] == board[win_combo[2]] &&
-    position_taken?(board, win_combo[0])
+    position_taken?(board, win_combo[0]) #for case: " "
   end
 end
 
@@ -31,4 +31,8 @@ end
 
 def draw?(board)
   !won?(board) && full?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board) || full?(board)
 end
